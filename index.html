@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css" />
+    <title>POK&Eacute;API</title>
+</head>
+
+<body class="bg-light">
+    <!--Enter page code below this-->
+    <div class="container" id="app">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <h1>WELCOME TO THE POK&Eacute;MON MOVE THING</h1>
+          <form v-on:submit.prevent="submit">
+            <label>Move name</label>
+            <input v-model="moveName" type="text"></input><br/>
+            <input type="submit" value="Submit"></input>
+          </form>
+        </div>
+      </div>
+      <div class="row justify-content-center" v-if="done">
+        <div class="col-6" id="pokeResults">
+          <h2>{{ result.moveName }} </h2>
+          <h3>Accuracy: {{ result.accuracy }} </h3>
+          <h3>Power: {{ result.power }} </h3>
+          <h3>PP: {{ result.PP }}</h3>
+          <h3>Move Class: {{ result.moveClass }}</h3>
+          <h3>Type: {{ result.type }} </h3>
+          <p>{{ result.flavorText }}</p>
+          <div v-if="magikarp">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/H3x3-22Gi3g?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center" v-if="error">
+        <p>No move found!</p>
+      </div>
+    </div>
+    <!--Enter page code above this-->
+    <footer class="footer">
+        <div class="bg-dark col align-self-center">
+            <a href="https://github.com/Deriboy/cp3" class="btn btn-primary">GitHub</a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="script.js"></script></script>
+</body>
+
+</html>
